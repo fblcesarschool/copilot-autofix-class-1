@@ -57,9 +57,9 @@ def delete_user():
     conn = sqlite3.connect('database.db')
     cursor = conn.cursor()
     
-    query = "DELETE FROM users WHERE id = " + str(user_id)
+    query = "DELETE FROM users WHERE id = ?"
     
-    cursor.execute(query)
+    cursor.execute(query, (user_id,))
     conn.commit()
     conn.close()
     
